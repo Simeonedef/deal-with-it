@@ -1,3 +1,15 @@
+<?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+require 'redbubble/redbubble.php';
+
+$redbubble = new Redbubble('prolificlee');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +21,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DEAL WITH IT</title>
+    <title>Get some swag</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -83,14 +95,79 @@
     <br>
     <br>
 
-    <!-- About Section -->
+    <!-- Products Section -->
     <section id="about" class="container text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>About page WIP</h2>
-                <p>Deal With It and its designs aim to be that sarcastic friend that you have who comments on nothing and everything, voicing the epitomes that you will have during your time as a girl trying to make sense of the beautiful chaos that is the 21st century.</p>
-                <p>Deal With It and its designs aim to be that sarcastic friend that you have who comments on nothing and everything, voicing the epitomes that you will have during your time as a girl trying to make sense of the beautiful chaos that is the 21st century.</p>
-                <p>Deal With It and its designs aim to be that sarcastic friend that you have who comments on nothing and everything, voicing the epitomes that you will have during your time as a girl trying to make sense of the beautiful chaos that is the 21st century.</p>
+                <h2>Products</h2>
+            </div>
+            <div class="row">
+                <?php
+                    if (!isset($_GET['rbu']) && !isset($_GET['cID']))
+                    {
+                        $count = 0;
+                        $collections = $redbubble->getCollections();
+                        
+                        foreach ($collections as $collection)
+                        {
+                            $newRow = 0;
+                            $count = $count + 1;
+                            if ($count % 4 == 0)
+                            {
+                                echo '<div class="row">';
+                                $newRow = 1;
+                            }
+
+                            echo '<div class="col-md-3">';
+                            echo '<p>';
+                            echo '<a href="' . $collection['url'] . '">';
+                            echo '<img src="' . $collection['image'] . '" alt="' . $collection['collection_id'] . '" />';
+                            echo '<h5>' . $collection['title'] . '</h5>';
+                            echo '</a>';
+                            echo '</p>';
+                            echo '</div>';
+                            if ($newRow == 1)
+                            {
+                                echo '</div>';
+                                $newRow = 0;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        $products = $redbubble->getProducts($_GET['cID']);
+
+                        $count2 = 0;
+                        
+                        foreach ($products as $product)
+                        {
+
+                            $newRow2 = 0;
+                            $count2 = $count2 + 1;
+                            if ($count2 % 4 == 0)
+                            {
+                                echo '<div class="row">';
+                                $newRow2 = 1;
+                            } 
+
+                            echo '<div class="col-md-3">';
+                            echo '<p>';
+                            echo '<a href="' . $product['link'] . '" target="_blank">';
+                            echo '<img src="' . $product['design_image'] . '" alt="' . $product['title'] . '" />';
+                            echo '<img src="' . $product['product_image'] . '" alt="' . $product['title'] . '" />';
+                            echo '<h5>' . $product['title'] . '</h5>';
+                            echo '<h6>' . $product['price'] . '</h6>';
+                            echo '</a>';
+                           echo '</p>';
+                            echo '</div>';
+                            if ($newRow2 == 1)
+                            {
+                                echo '</div>';
+                                $newRow2 = 0;
+                            } 
+                        }
+                    }
+                ?>
             </div>
         </div>
     </section>

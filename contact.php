@@ -85,16 +85,61 @@
 
     <!-- About Section -->
     <section id="about" class="container text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About page WIP</h2>
-                <p>Deal With It and its designs aim to be that sarcastic friend that you have who comments on nothing and everything, voicing the epitomes that you will have during your time as a girl trying to make sense of the beautiful chaos that is the 21st century.</p>
-                <p>Deal With It and its designs aim to be that sarcastic friend that you have who comments on nothing and everything, voicing the epitomes that you will have during your time as a girl trying to make sense of the beautiful chaos that is the 21st century.</p>
-                <p>Deal With It and its designs aim to be that sarcastic friend that you have who comments on nothing and everything, voicing the epitomes that you will have during your time as a girl trying to make sense of the beautiful chaos that is the 21st century.</p>
+        <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="well well-sm">
+                  <form class="form-horizontal" action="" method="post">
+                  <fieldset>
+                    <h5><legend class="text-center">Contact us</legend></h5>
+            
+                    <!-- Name input-->
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="name">Name</label>
+                      <div class="col-md-9">
+                        <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+                      </div>
+                    </div>
+            
+                    <!-- Email input-->
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="email">Your E-mail</label>
+                      <div class="col-md-9">
+                        <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+                      </div>
+                    </div>
+
+                    <!-- Subject input-->
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="name">Subject</label>
+                      <div class="col-md-9">
+                        <input id="subject" name="subject" type="text" placeholder="Subject" class="form-control">
+                      </div>
+                    </div>
+            
+                    <!-- Message body -->
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="message">Your message</label>
+                      <div class="col-md-9">
+                        <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+                      </div>
+                    </div>
+            
+                    <!-- Form actions -->
+                    <div class="form-group">
+                      <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-default btn-lg">Submit</button>
+                      </div>
+                    </div>
+                  </fieldset>
+                  </form>
+                </div>
+              </div>
             </div>
         </div>
     </section>
 
+    
     <br>
     <br>
     <br>
